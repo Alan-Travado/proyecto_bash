@@ -4,7 +4,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 EPNRO1="$HOME/EPNro1"
 PIDFILE="$EPNRO1/consolidar.pid"
 
-# Parámetro optativo -d: borra el entorno y mata el proceso en background
+# Parametro optativo -d: borra el entorno y mata el proceso en background
 if [ "$1" = "-d" ]; then
     if [ -f "$PIDFILE" ]; then
         pid=$(cat "$PIDFILE")
