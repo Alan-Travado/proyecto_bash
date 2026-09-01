@@ -105,21 +105,23 @@ do
             ARCHIVO="$EPNRO1/salida/${FILENAME}.txt"
 
             if [ ! -f "$ARCHIVO" ]; then
-                echo "No existe el archivo ${FILENAME}.txt en la carpeta salida."
+                echo "No hay datos todavia. No existe el archivo ${FILENAME}.txt"
                 continue
             fi
 
-            read -p "Ingrese el número de padrón: " padron
+            read -p "Ingrese el nombre, apellido o padron que quiere buscar: " busqueda
 
-            if [ -z "$padron" ]; then
-                echo "ERROR: Debe ingresar un número de padrón."
+            if [ -z "$busqueda" ]; then
+                echo "ERROR: Debe ingresar un valor para buscar."
             else
-                resultado=$(awk -v p="$padron" '$1 == p' "$ARCHIVO")
-                if [ -n "$resultado" ]; then
-                    echo "Datos del padrón $padron:"
-                    echo "$resultado"
+                echo "Resultados para '$busqueda':"
+                echo "--------------------------------"
+                
+                # igonara mayusculas y minisculas 
+                if grep -i "$busqueda" "$ARCHIVO"; then
+                    echo "--------------------------------"
                 else
-                    echo "No se encontró ningún alumno con el padrón $padron."
+                    echo "No se encontró ningún alumno con esos datos."
                 fi
             fi
             ;;
