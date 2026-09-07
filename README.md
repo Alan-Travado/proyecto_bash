@@ -61,7 +61,7 @@ export FILENAME=alumnos
    |--------|----------|
    | 3 | Lista alumnos ordenados por padrón |
    | 4 | Muestra las 10 notas más altas |
-   | 5 | Pide un padrón y muestra ese alumno |
+   | 5 | Busca un alumno por padron , nombre , apellido o email. |
    | 6 | Muestra el log |
 
 7. **Opción 7 — Salir**
